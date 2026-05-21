@@ -403,7 +403,9 @@
     `).join('');
   }
 
-  // ── INIT ──
+// ── INIT ──
+  localStorage.setItem('qv_apikey', '$2a$10$qV8yN7IBFfHe108C0FVbx.43YgDsvXgATlZZg.ZVHqZoLv8DxSILO');
+  localStorage.setItem('qv_binid', '6a0ea0d66877513b27a9572c');
   const { key, bin } = loadConfig();
   if (key && bin) fetchQuotes();
   else renderList([]);

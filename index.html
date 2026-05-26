@@ -37,7 +37,7 @@
   .card-wrap { position:relative;z-index:10;width:100%;max-width:640px;padding:20px;display:flex;flex-direction:column;align-items:center;animation:cardEntry 1.2s cubic-bezier(0.16,1,0.3,1) forwards;opacity:0; }
   @keyframes cardEntry { from{opacity:0;transform:translateY(40px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);} }
 
-  .card { background:var(--card); border:1px solid rgba(138,70,224,0.25); border-radius:24px; padding:48px 44px; width:100%; position:relative; overflow:hidden; backdrop-filter:blur(20px); box-shadow:0 0 0 1px rgba(180,70,224,0.08),0 40px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.05); }
+  .card { background:var(--card); border:1px solid rgba(70,224,138,0.18); border-radius:24px; padding:48px 44px; width:100%; position:relative; overflow:hidden; backdrop-filter:blur(20px); box-shadow:0 0 0 1px rgba(70,224,190,0.06),0 40px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.05); }
   .card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--mint),var(--teal),var(--lime),transparent);animation:shimmer 3s ease-in-out infinite; }
   @keyframes shimmer { 0%,100%{opacity:0.5;}50%{opacity:1;} }
 
@@ -49,7 +49,7 @@
   .quote-author { text-align:center;margin-top:28px;font-size:0.82rem;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;font-style:normal;font-weight:400;animation:textFade 1.5s ease forwards;animation-delay:0.7s;opacity:0; }
   .divider { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--mint),transparent);margin:24px auto;animation:textFade 1.5s ease forwards;animation-delay:0.55s;opacity:0; }
 
-  .date-chip { display:inline-flex;align-items:center;gap:8px;background:rgba(138,70,224,0.1);border:1px solid rgba(138,70,224,0.25);border-radius:30px;padding:7px 18px;font-size:0.72rem;color:var(--mint);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;animation:textFade 1s ease forwards;animation-delay:0.1s;opacity:0; }
+  .date-chip { display:inline-flex;align-items:center;gap:8px;background:rgba(70,224,138,0.08);border:1px solid rgba(70,224,138,0.2);border-radius:30px;padding:7px 18px;font-size:0.72rem;color:var(--mint);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;animation:textFade 1s ease forwards;animation-delay:0.1s;opacity:0; }
   .dot { width:6px;height:6px;border-radius:50%;background:var(--lime);animation:pulse 2s ease infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
 
@@ -58,7 +58,7 @@
   .timer-value { font-size:0.9rem;color:var(--yellow);letter-spacing:0.08em;font-style:normal; }
 
   .no-quote { text-align:center;color:var(--muted);font-style:italic;font-size:1rem;line-height:1.7;opacity:0;animation:textFade 1.5s ease 0.4s forwards; }
-  .footer { position:fixed;bottom:16px;left:0;right:0;text-align:center;font-size:0.65rem;color:rgba(180,110,224,0.35);letter-spacing:0.1em;text-transform:uppercase;z-index:10;font-style:normal; }
+  .footer { position:fixed;bottom:16px;left:0;right:0;text-align:center;font-size:0.65rem;color:rgba(144,224,152,0.3);letter-spacing:0.1em;text-transform:uppercase;z-index:10;font-style:normal; }
   .emoji-burst { position:fixed;pointer-events:none;z-index:50;font-size:2rem;animation:burst 1.2s ease forwards; }
   @keyframes burst { 0%{transform:translate(-50%,-50%) scale(0);opacity:1;}60%{transform:translate(-50%,-160%) scale(1.3);opacity:1;}100%{transform:translate(-50%,-200%) scale(0.8);opacity:0;} }
 
@@ -78,7 +78,7 @@
   <div class="date-chip"><div class="dot"></div><span id="dateLabel">Loading…</span></div>
   <div class="card">
     <div class="big-quote">"</div>
-    <div id="quoteContent"><div class="no-quote">Loading today's quote… 💜</div></div>
+    <div id="quoteContent"><div class="no-quote">Loading today's quote… 🌿</div></div>
   </div>
   <div class="timer-block" id="timerBlock" style="display:none">
     <div class="timer-label">Next quote arrives in</div>
@@ -95,7 +95,7 @@
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   const SHOWN_KEY = 'quotevault_shown';
-  const EMOJIS = ['🌿','🍃','✨','🌱','💚','🌾','🍀','🌲','🌳','💫','🌻','🦋','🌈','☘️','🪴','💖','🍇','💐','🧚🏼‍♀️','💕','💗','💓','🎀','😇','🩷','🐝','🐞','🪷','🌸','🌺','🌷','🪻','⚘️','🍁','🍂','🪾','🌹','🪺','🫐','💜','🔮','🪄','💎','🌌','🫧','🩵','👾','🌙','⭐','🫂'];
+  const EMOJIS = ['🌿','🍃','✨','🌱','💚','🌾','🍀','🌲','🌳','💫','🌻','🦋','🌈','☘️','🪴','💖','🍇','💐','🧚🏼‍♀️','💕','💗','💓','🎀','😇','🩷','🐝','🐞','🪷','🌸','🌺','🌷','🪻','⚘️','🍁','🍂','🪾','🌹','🪺','🫐','💜','🔮','🫐','🪄','💎','🌌','🫧','🩵','👾','🌙','⭐'];
 
   function slotStr() {
     const d = new Date();
@@ -140,7 +140,7 @@
       now.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 
     if (SCRIPT_URL === 'PASTE_YOUR_SCRIPT_URL_HERE') {
-      content.innerHTML = `<div class="no-quote">Not configured yet 💜</div>`;
+      content.innerHTML = `<div class="no-quote">Not configured yet 🌿</div>`;
       return;
     }
 
@@ -154,7 +154,7 @@
       const quote = getDailyQuote(quotes);
 
       if (!quote) {
-        content.innerHTML = `<div class="no-quote">No quotes yet.<br/>Check back soon 💜</div>`;
+        content.innerHTML = `<div class="no-quote">No quotes yet.<br/>Check back soon 🌿</div>`;
         return;
       }
 
@@ -169,11 +169,11 @@
       setInterval(updateTimer, 1000);
 
     } catch(e) {
-      content.innerHTML = `<div class="no-quote">Couldn't load today's quote.<br/>Please try again later 💜</div>`;
+      content.innerHTML = `<div class="no-quote">Couldn't load today's quote.<br/>Please try again later 🌿</div>`;
     }
   }
 
-  function updateTimer() {
+function updateTimer() {
     const now = new Date();
     const currentSlot = Math.floor(now.getHours() / 4);
     const nextSlotHour = (currentSlot + 1) * 4;

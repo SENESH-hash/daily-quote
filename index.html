@@ -6,15 +6,15 @@
 <title>Daily Quote</title>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --lime:   #73E046;
-    --mint:   #46E08A;
-    --yellow: #B4E046;
-    --teal:   #46E0BE;
-    --dark:   #0d1f0d;
-    --card:   rgba(20,45,20,0.85);
-    --text:   #e8f5e8;
-    --muted:  #8ab88a;
+:root {
+    --lime:   #B46EE0;
+    --mint:   #8A46E0;
+    --yellow: #D4B0F0;
+    --teal:   #BE46E0;
+    --dark:   #0d0d1f;
+    --card:   rgba(25,15,40,0.85);
+    --text:   #f0e8f5;
+    --muted:  #b88ac8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; overflow: hidden; }
@@ -95,7 +95,7 @@
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   const SHOWN_KEY = 'quotevault_shown';
-  const EMOJIS = ['🌿','🍃','✨','🌱','💚','🌾','🍀','🌲','🌳','💫','🌻','🦋','🌈','☘️','🪴','💖','🍇','💐','🧚🏼‍♀️','💕','💗','💓','🎀','😇','🩷','🐝','🐞','🪷','🌸','🌺','🌷','🪻','⚘️','🍁','🍂','🪾','🌹','🪺','🫐'];
+  const EMOJIS = ['🌿','🍃','✨','🌱','💚','🌾','🍀','🌲','🌳','💫','🌻','🦋','🌈','☘️','🪴','💖','🍇','💐','🧚🏼‍♀️','💕','💗','💓','🎀','😇','🩷','🐝','🐞','🪷','🌸','🌺','🌷','🪻','⚘️','🍁','🍂','🪾','🌹','🪺','🫐','💜','🔮','🫐','🪄','💎','🌌','🫧','🩵','👾','🌙','⭐'];
 
   function slotStr() {
     const d = new Date();

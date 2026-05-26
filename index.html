@@ -12,70 +12,32 @@
     --yellow: #B4E046;
     --teal:   #46E0BE;
     --dark:   #0d1f0d;
-    --dark2:  #112011;
     --card:   rgba(20,45,20,0.85);
     --text:   #e8f5e8;
     --muted:  #8ab88a;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; overflow: hidden; }
+  body { font-family: 'Merriweather', serif; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; position: relative; }
 
-  body {
-    font-family: 'Merriweather', serif;
-    background: var(--dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-  }
-
-  /* BG ORBS */
   .bg-canvas { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
   .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; animation: drift linear infinite; }
   .orb1 { width:500px;height:500px;background:var(--mint); top:-100px;left:-150px;animation-duration:22s; }
   .orb2 { width:400px;height:400px;background:var(--lime); bottom:-120px;right:-100px;animation-duration:28s;animation-delay:-10s; }
   .orb3 { width:300px;height:300px;background:var(--teal); top:40%;left:60%;animation-duration:18s;animation-delay:-5s; }
   .orb4 { width:250px;height:250px;background:var(--yellow);top:20%;right:10%;animation-duration:32s;animation-delay:-14s; }
-  @keyframes drift {
-    0%   { transform:translate(0,0) scale(1); }
-    25%  { transform:translate(60px,-40px) scale(1.05); }
-    50%  { transform:translate(30px,60px) scale(0.95); }
-    75%  { transform:translate(-40px,20px) scale(1.03); }
-    100% { transform:translate(0,0) scale(1); }
-  }
+  @keyframes drift { 0%{transform:translate(0,0) scale(1);} 25%{transform:translate(60px,-40px) scale(1.05);} 50%{transform:translate(30px,60px) scale(0.95);} 75%{transform:translate(-40px,20px) scale(1.03);} 100%{transform:translate(0,0) scale(1);} }
 
-  .grain { position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size:200px 200px; }
+  .grain { position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:200px 200px; }
 
-  /* PARTICLES */
   .particles { position:fixed;inset:0;z-index:2;pointer-events:none; }
   .particle { position:absolute;font-size:1.6rem;opacity:0;animation:floatUp linear infinite; }
-  @keyframes floatUp {
-    0%   { transform:translateY(0) rotate(0deg) scale(0.8);opacity:0; }
-    10%  { opacity:0.85; }
-    90%  { opacity:0.4; }
-    100% { transform:translateY(-110vh) rotate(360deg) scale(1.1);opacity:0; }
-  }
+  @keyframes floatUp { 0%{transform:translateY(0) rotate(0deg) scale(0.8);opacity:0;} 10%{opacity:0.85;} 90%{opacity:0.4;} 100%{transform:translateY(-110vh) rotate(360deg) scale(1.1);opacity:0;} }
 
-  /* CARD */
   .card-wrap { position:relative;z-index:10;width:100%;max-width:640px;padding:20px;display:flex;flex-direction:column;align-items:center;animation:cardEntry 1.2s cubic-bezier(0.16,1,0.3,1) forwards;opacity:0; }
   @keyframes cardEntry { from{opacity:0;transform:translateY(40px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);} }
 
-  .card {
-    background: var(--card);
-    border: 1px solid rgba(70,224,138,0.18);
-    border-radius: 24px;
-    padding: 48px 44px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 0 1px rgba(70,224,190,0.06), 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-  }
+  .card { background:var(--card); border:1px solid rgba(70,224,138,0.18); border-radius:24px; padding:48px 44px; width:100%; position:relative; overflow:hidden; backdrop-filter:blur(20px); box-shadow:0 0 0 1px rgba(70,224,190,0.06),0 40px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.05); }
   .card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--mint),var(--teal),var(--lime),transparent);animation:shimmer 3s ease-in-out infinite; }
   @keyframes shimmer { 0%,100%{opacity:0.5;}50%{opacity:1;} }
 
@@ -96,9 +58,7 @@
   .timer-value { font-size:0.9rem;color:var(--yellow);letter-spacing:0.08em;font-style:normal; }
 
   .no-quote { text-align:center;color:var(--muted);font-style:italic;font-size:1rem;line-height:1.7;opacity:0;animation:textFade 1.5s ease 0.4s forwards; }
-
   .footer { position:fixed;bottom:16px;left:0;right:0;text-align:center;font-size:0.65rem;color:rgba(144,224,152,0.3);letter-spacing:0.1em;text-transform:uppercase;z-index:10;font-style:normal; }
-
   .emoji-burst { position:fixed;pointer-events:none;z-index:50;font-size:2rem;animation:burst 1.2s ease forwards; }
   @keyframes burst { 0%{transform:translate(-50%,-50%) scale(0);opacity:1;}60%{transform:translate(-50%,-160%) scale(1.3);opacity:1;}100%{transform:translate(-50%,-200%) scale(0.8);opacity:0;} }
 
@@ -126,20 +86,18 @@
   </div>
 </div>
 
-<div class="footer">✦ one quote · one day · quotevault</div>
+<div class="footer">✦ one quote · three hours · quotevault</div>
 
 <script>
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  //  ⬇ PASTE YOUR VALUES HERE (from admin setup)
-  const JSONBIN_API_KEY = '$2a$10$qV8yN7IBFfHe108C0FVbx.43YgDsvXgATlZZg.ZVHqZoLv8DxSILO';
-  const JSONBIN_BIN_ID  = '6a0ea0d66877513b27a9572c';
+  // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
+  const SCRIPT_URL = 'PASTE_YOUR_SCRIPT_URL_HERE';
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  const SHOWN_KEY    = 'quotevault_shown';
-  const REFRESH_HOUR = 6;
+  const SHOWN_KEY = 'quotevault_shown';
   const EMOJIS = ['🌿','🍃','✨','🌱','💚','🌾','🍀','🌲','🌳','💫','🌻','🦋','🌈','☘️','🪴'];
 
-function todayStr() {
+  function slotStr() {
     const d = new Date();
     const slot = Math.floor(d.getHours() / 3);
     return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}-slot${slot}`;
@@ -154,10 +112,10 @@ function todayStr() {
 
   function getDailyQuote(quotes) {
     if (!quotes.length) return null;
-    const today = todayStr();
+    const slot = slotStr();
     let state = getShownState();
 
-    if (state.dateStr === today && typeof state.index === 'number') {
+    if (state.dateStr === slot && typeof state.index === 'number') {
       return quotes[state.index % quotes.length];
     }
 
@@ -170,31 +128,29 @@ function todayStr() {
     }
     if (tries >= quotes.length) { seen = []; }
     seen.push(candidate);
-    state = { dateStr: today, index: candidate, seen };
+    state = { dateStr: slot, index: candidate, seen };
     saveShownState(state);
     return quotes[candidate];
   }
 
   async function fetchAndRender() {
     const content = document.getElementById('quoteContent');
-
-    // date chip
     const now = new Date();
     document.getElementById('dateLabel').textContent =
       now.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 
-    if (JSONBIN_API_KEY === 'PASTE_YOUR_API_KEY_HERE' || JSONBIN_BIN_ID === 'PASTE_YOUR_BIN_ID_HERE') {
-      content.innerHTML = `<div class="no-quote">Quote Vault isn't configured yet.<br/>Admin needs to add the API key 🌿</div>`;
+    if (SCRIPT_URL === 'PASTE_YOUR_SCRIPT_URL_HERE') {
+      content.innerHTML = `<div class="no-quote">Not configured yet 🌿</div>`;
       return;
     }
 
     try {
-      const res = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
-        headers: { 'X-Master-Key': JSONBIN_API_KEY }
-      });
+      const url = new URL(SCRIPT_URL);
+      url.searchParams.set('action', 'get');
+      const res = await fetch(url.toString());
       if (!res.ok) throw new Error('fetch failed');
       const data = await res.json();
-      const quotes = data.record.quotes || [];
+      const quotes = data.quotes || [];
       const quote = getDailyQuote(quotes);
 
       if (!quote) {
@@ -217,8 +173,8 @@ function todayStr() {
     }
   }
 
-function updateTimer() {
-    const now  = new Date();
+  function updateTimer() {
+    const now = new Date();
     const currentSlot = Math.floor(now.getHours() / 3);
     const nextSlotHour = (currentSlot + 1) * 3;
     const next = new Date();
